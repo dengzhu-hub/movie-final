@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 tsconfig.node.json
- package-lock.json
+package-lock.json
