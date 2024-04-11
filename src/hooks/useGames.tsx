@@ -5,10 +5,11 @@ import { CanceledError } from "axios";
 
 export default function useGames() {
   const [games, setGames] = useState<Game[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
     const controller = new AbortController();
+    setIsLoading(true);
     apiClient
       .get<FetchGamesProps>("/games", {
         signal: controller.signal,

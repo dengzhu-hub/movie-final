@@ -8,7 +8,7 @@ import {
 
 const CardSkeleton = () => {
   return (
-    <Card width={"300px"} borderRadius={"lg"}>
+    <Card>
       <Skeleton height="200px" />
       <CardBody>
         <SkeletonCircle size="10" />

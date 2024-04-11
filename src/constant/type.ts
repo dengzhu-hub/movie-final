@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { IconType } from "react-icons";
 
 interface Platform {
@@ -26,4 +27,9 @@ export interface IconMapProps {
 
 export interface CriticScoreProps {
   score: number;
+}
+
+//? use type
+export type GameCardContainerProps = {
+  children: ReactNode
 }

@@ -15,7 +15,7 @@ interface GameCardProps {
 }
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <Card width="300px" borderRadius={"lg"}  overflow={'hidden'}>
+    <Card >
       <Image src={game.background_image} alt="game-image" />
       <Stack>
         <CardBody>
