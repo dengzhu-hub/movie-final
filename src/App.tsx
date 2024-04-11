@@ -9,13 +9,11 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
-      gridTemplateColumns={"150px 1fr"}
-      gridTemplateRows={"50px 1fr 30px"}
     >
       <GridItem area={`nav`}>
         <NavBar />
       </GridItem>
-      <Show breakpoint="(min-width: 960px)">
+      <Show above="lg">
         <GridItem area={"aside"}>aside</GridItem>
       </Show>
       <GridItem area={"main"}>
