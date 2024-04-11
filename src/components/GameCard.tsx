@@ -5,7 +5,6 @@ import {
   HStack,
   Image,
   Stack,
- 
 } from "@chakra-ui/react";
 import { Game } from "../constant/type";
 import PlatformIconList from "./PlatformIconList";
@@ -16,8 +15,8 @@ interface GameCardProps {
 }
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <Card>
-      <Image src={game.background_image} alt="game-image" borderRadius={"lg"} />
+    <Card width="300px" borderRadius={"lg"}  overflow={'hidden'}>
+      <Image src={game.background_image} alt="game-image" />
       <Stack>
         <CardBody>
           <Heading>{game.name}</Heading>
