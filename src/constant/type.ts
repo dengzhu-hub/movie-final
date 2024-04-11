@@ -33,3 +33,11 @@ export interface CriticScoreProps {
 export type GameCardContainerProps = {
   children: ReactNode
 }
+export type Genre = {
+  id: number;
+  name: string;
+};
+export type FetchGenresProps = {
+  count: number;
+  results: Genre[];
+};
