@@ -10,6 +10,7 @@ export interface Game {
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 export interface FetchGamesProps {
   count: number;
@@ -21,4 +22,8 @@ export interface PlatformIconListProps {
 }
 export interface IconMapProps {
   [key: string]: IconType;
+}
+
+export interface CriticScoreProps {
+  score: number;
 }
