@@ -1,24 +1,17 @@
-import {
-  Game,
-  SelectedGenreProps,
-  SelectedPlatformProps,
-} from "../constant/type";
+import { Game, GameQuery } from "../constant/type";
 
 import useFetchData from "./useFetchData";
 
-const useGames = (
-  selectedGenre: SelectedGenreProps,
-  selectPlatform: SelectedPlatformProps,
-) => {
+const useGames = (gameQuery: GameQuery) => {
   return useFetchData<Game>(
     "/games",
     {
       params: {
-        genres: selectedGenre?.id,
-        platforms: selectPlatform?.id,
+        genres: gameQuery?.genre?.id,
+        platforms: gameQuery?.platform?.id,
       },
     },
-    [selectedGenre?.id, selectPlatform?.id],
+    [gameQuery],
   );
 };
 

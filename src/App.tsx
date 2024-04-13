@@ -4,13 +4,11 @@ import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenresList from "./components/GenresList.tsx";
 import { useState } from "react";
-import { SelectedGenreProps, SelectedPlatformProps } from "./constant/type.ts";
+import { GameQuery } from "./constant/type.ts";
 import PlatformSelector from "./components/PlatformSelector.tsx";
 
 function App() {
-  const [selectGenre, setSelectGenre] = useState<SelectedGenreProps>(null);
-  const [selectPlatform, setSelectPlatform] =
-    useState<SelectedPlatformProps>(null);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     <Grid
@@ -30,17 +28,19 @@ function App() {
       <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>
           <GenresList
-            selectedGenre={selectGenre}
-            onSelectGenre={(genre) => setSelectGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </GridItem>
       </Show>
       <GridItem area={"main"}>
         <PlatformSelector
-          selectedPlatform={selectPlatform}
-          onSelectendPlatform={(platform) => setSelectPlatform(platform)}
+          selectedPlatform={gameQuery.platform}
+          onSelectendPlatform={(platform) =>
+            setGameQuery({ ...gameQuery, platform })
+          }
         />
-        <GameGrid selectedGenre={selectGenre} selectPlatform={selectPlatform} />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );

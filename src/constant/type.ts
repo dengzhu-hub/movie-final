@@ -80,3 +80,11 @@ export interface useGameProps {
   selectedGenre: SelectedGenreProps;
   selectPlatform: SelectedPlatformProps;
 }
+
+export interface GameQuery {
+  genre: SelectedGenreProps;
+  platform: SelectedPlatformProps;
+}
+export interface GameGridProps {
+  gameQuery: GameQuery;
+}
