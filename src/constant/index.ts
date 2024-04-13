@@ -21,3 +21,26 @@ export const iconMap: IconMapProps = {
   nintendo: SiNintendo,
   ios: FaApple,
 };
+export const sortOrder = [
+  {
+    value: "name",
+    label: "Name",
+  },
+  { value: "-released", label: "Release Date" },
+  {
+    value: "-added",
+    label: "Added Date",
+  },
+  {
+    value: "rating",
+    label: "Rating",
+  },
+  {
+    value: "-updated",
+    label: "Updated Date",
+  },
+  {
+    value: "metacritic",
+    label: "Popular",
+  },
+];

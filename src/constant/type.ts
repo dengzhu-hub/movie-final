@@ -84,6 +84,7 @@ export interface useGameProps {
 export interface GameQuery {
   genre: SelectedGenreProps;
   platform: SelectedPlatformProps;
+  sortOrder: string;
 }
 export interface GameGridProps {
   gameQuery: GameQuery;
