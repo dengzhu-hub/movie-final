@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { IconType } from "react-icons";
 
 interface Platform {
@@ -12,6 +12,9 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+}
+export interface GameCardProps {
+  game: Game;
 }
 export interface FetchGamesProps {
   count: number;
@@ -31,13 +34,27 @@ export interface CriticScoreProps {
 
 //? use type
 export type GameCardContainerProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 export type Genre = {
   id: number;
   name: string;
+  image_background: string;
 };
+
 export type FetchGenresProps = {
   count: number;
   results: Genre[];
 };
+
+export interface FetchResponse<T> {
+  count: number;
+  results: T[];
+}
+export interface GenreContextType {
+  selectGenre: Genre | null;
+  setSelectGenre: Dispatch<SetStateAction<Genre | null>>;
+  onSelectGenre: (genre: Genre) => void;
+}
+
+export type SelectGenreProps = Genre | null;

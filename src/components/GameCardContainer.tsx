@@ -3,7 +3,11 @@ import { GameCardContainerProps } from "../constant/type";
 
 const GameCardContainer = ({ children }: GameCardContainerProps) => {
   return (
-    <Box width="300px" borderRadius={"lg"} overflow={"hidden"}>
+    <Box
+      maxW={["sm", "md", "lg", "xl"]}
+      borderRadius={"lg"}
+      overflow={"hidden"}
+    >
       {children}
     </Box>
   );
