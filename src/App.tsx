@@ -4,10 +4,10 @@ import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenresList from "./components/GenresList.tsx";
 import { useState } from "react";
-import { Genre } from "./constant/type.ts";
+import { SelectedGenreProps } from "./constant/type.ts";
 
 function App() {
-  const [selectGenre, setSelectGenre] = useState<Genre | null>(null);
+  const [selectGenre, setSelectGenre] = useState<SelectedGenreProps>(null);
 
   return (
     <Grid
@@ -26,7 +26,10 @@ function App() {
       </GridItem>
       <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>
-          <GenresList onSelectGenre={(genre) => setSelectGenre(genre)} />
+          <GenresList
+            selectedGenre={selectGenre}
+            onSelectGenre={(genre) => setSelectGenre(genre)}
+          />
         </GridItem>
       </Show>
       <GridItem area={"main"}>

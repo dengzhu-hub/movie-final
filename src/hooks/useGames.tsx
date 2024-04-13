@@ -1,13 +1,13 @@
-import { Game, Genre } from "../constant/type";
+import { Game, SelectedGenreProps } from "../constant/type";
 
 import useFetchData from "./useFetchData";
 
-const useGames = (selectedGenre: Genre | null) => {
+const useGames = (selectedGenre: SelectedGenreProps) => {
   return useFetchData<Game>(
     "/games",
     {
       params: {
-        platforms: selectedGenre?.id,
+        genres: selectedGenre?.id,
       },
     },
     [selectedGenre?.id],

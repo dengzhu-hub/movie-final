@@ -3,9 +3,9 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import CardSkeleton from "./CardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../constant/type";
+import { SelectedGenreProps } from "../constant/type";
 interface Props {
-  selectedGenre: Genre | null;
+  selectedGenre: SelectedGenreProps;
 }
 
 const GameGrid = ({ selectedGenre }: Props) => {

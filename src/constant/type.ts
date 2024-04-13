@@ -57,4 +57,9 @@ export interface GenreContextType {
   onSelectGenre: (genre: Genre) => void;
 }
 
-export type SelectGenreProps = Genre | null;
+export type SelectedGenreProps = Genre | null;
+
+export interface GenreListProps {
+  onSelectGenre: (genre: Genre) => void;
+  selectedGenre: SelectedGenreProps;
+}
