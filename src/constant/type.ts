@@ -63,3 +63,20 @@ export interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: SelectedGenreProps;
 }
+
+export interface PlatformProps {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface PlatformSelectorProps {
+  onSelectendPlatform: (platform: PlatformProps) => void;
+  selectedPlatform: PlatformProps | null;
+}
+export type SelectedPlatformProps = PlatformProps | null;
+
+export interface useGameProps {
+  selectedGenre: SelectedGenreProps;
+  selectPlatform: SelectedPlatformProps;
+}
