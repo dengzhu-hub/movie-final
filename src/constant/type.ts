@@ -85,7 +85,12 @@ export interface GameQuery {
   genre: SelectedGenreProps;
   platform: SelectedPlatformProps;
   sortOrder: string;
+  searchText: string;
 }
 export interface GameGridProps {
   gameQuery: GameQuery;
+}
+
+export interface SearchInputProps {
+  onSearch: (searchText: string) => void;
 }
