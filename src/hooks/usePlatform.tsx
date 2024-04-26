@@ -1,6 +1,4 @@
-import { PlatformProps } from "../constant/type";
-import useFetchData from "./useFetchData";
+import { platforms } from "../data/platform";
 
-const usePlatform = () =>
-  useFetchData<PlatformProps>("/platforms/lists/parents");
+const usePlatform = () => ({ data: platforms, isLoading: false, error: null });
 export default usePlatform;

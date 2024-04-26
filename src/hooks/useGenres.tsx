@@ -1,5 +1,3 @@
-import { Genre } from "../constant/type.ts";
-import useFetchData from "./useFetchData.tsx";
-
-const useGenres = () => useFetchData<Genre>("/genres");
+import { genres } from "../data/genres.ts";
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
 export default useGenres;
