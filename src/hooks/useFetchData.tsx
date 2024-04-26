@@ -16,8 +16,8 @@ export default function useFetchData<T>(
   useEffect(
     () => {
       const controller = new AbortController();
-      setIsLoading(true);
       const fetchData = async () => {
+        setIsLoading(true);
         try {
           const response = await apiClient.get<FetchResponse<T>>(endpoint, {
             signal: controller.signal,
