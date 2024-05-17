@@ -1,8 +1,8 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-import { BsChevronDown } from "react-icons/bs";
-import usePlatform from "../hooks/usePlatform";
-import Spinners from "./sprinner/Spinners";
-import { PlatformSelectorProps } from "../constant/type";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { BsChevronDown } from 'react-icons/bs';
+import usePlatform from '../hooks/usePlatform';
+import Spinners from './sprinner/Spinners';
+import { PlatformSelectorProps } from '../constant/type';
 
 const PlatformSelector = ({
   onSelectendPlatform,
@@ -14,10 +14,10 @@ const PlatformSelector = ({
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform ? selectedPlatform?.name : "platforms"}
+        {selectedPlatform ? selectedPlatform?.name : 'platforms'}
       </MenuButton>
       <MenuList>
-        {data?.map((data) => (
+        {data?.results.map((data) => (
           <MenuItem
             key={data.id}
             onClick={() => {
