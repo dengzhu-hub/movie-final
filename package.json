@@ -39,9 +39,21 @@
     "vite": "^5.2.0"
   },
   "lint-staged": {
-    "src/**/*.{js,ts}": [
+    "*.ts": [
       "eslint --fix",
-      "prettier --write"
+      "git add"
+    ],
+    "*.tsx": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.cjs": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
