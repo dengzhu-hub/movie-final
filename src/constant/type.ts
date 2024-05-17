@@ -1,5 +1,5 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
-import { IconType } from "react-icons";
+import { Dispatch, ReactNode, SetStateAction } from 'react';
+import { IconType } from 'react-icons';
 
 interface Platform {
   id: number;
@@ -50,6 +50,7 @@ export type FetchGenresProps = {
 
 export interface FetchResponse<T> {
   count: number;
+  next: string | null;
   results: T[];
 }
 export interface GenreContextType {

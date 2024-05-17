@@ -12,7 +12,7 @@ import { GenreListProps } from '../constant/type';
 import Spinners from './sprinner/Spinners';
 
 const GenresList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
-  const { data, isLoading, error } = useGenres();
+  const { isLoading, data: genres, error } = useGenres();
 
   if (error) return;
   if (isLoading) return <Spinners></Spinners>;
@@ -22,7 +22,7 @@ const GenresList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
         genres
       </Heading>
       <List>
-        {data?.results.map((genre) => (
+        {genres?.results.map((genre) => (
           <ListItem paddingY={'5px'} key={genre.id}>
             <HStack>
               <Image

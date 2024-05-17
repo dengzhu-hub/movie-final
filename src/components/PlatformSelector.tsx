@@ -9,15 +9,17 @@ const PlatformSelector = ({
   selectedPlatform,
 }: PlatformSelectorProps) => {
   const { data, error, isLoading } = usePlatform();
+  console.log(data);
   if (error) return null;
   if (isLoading) return <Spinners></Spinners>;
+  const platforms = data?.results ?? [];
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
         {selectedPlatform ? selectedPlatform?.name : 'platforms'}
       </MenuButton>
       <MenuList>
-        {data?.results.map((data) => (
+        {platforms.map((data) => (
           <MenuItem
             key={data.id}
             onClick={() => {
