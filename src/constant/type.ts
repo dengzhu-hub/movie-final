@@ -1,7 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 import { IconType } from 'react-icons';
 
-interface Platform {
+export interface Platform {
   id: number;
   name: string;
   slug: string;
@@ -63,7 +63,7 @@ export type SelectedGenreProps = Genre | null;
 
 export interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: SelectedGenreProps;
+  selectedGenreId?: number;
 }
 
 export interface PlatformProps {
@@ -74,7 +74,7 @@ export interface PlatformProps {
 
 export interface PlatformSelectorProps {
   onSelectendPlatform: (platform: PlatformProps) => void;
-  selectedPlatform: PlatformProps | null;
+  selectedPlatformId?: number | undefined;
 }
 export type SelectedPlatformProps = PlatformProps | null;
 
@@ -84,8 +84,8 @@ export interface useGameProps {
 }
 
 export interface GameQuery {
-  genre: SelectedGenreProps;
-  platform: SelectedPlatformProps;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }

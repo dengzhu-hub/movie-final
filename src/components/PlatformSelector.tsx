@@ -6,20 +6,24 @@ import { PlatformSelectorProps } from '../constant/type';
 
 const PlatformSelector = ({
   onSelectendPlatform,
-  selectedPlatform,
+  selectedPlatformId,
 }: PlatformSelectorProps) => {
-  const { data, error, isLoading } = usePlatform();
-  console.log(data);
+  const { data: platforms, error, isLoading } = usePlatform();
+  const platform = platforms?.results.find(
+    (platform) => platform.id === selectedPlatformId,
+  );
+  console.log(platform);
+
   if (error) return null;
   if (isLoading) return <Spinners></Spinners>;
-  const platforms = data?.results ?? [];
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform ? selectedPlatform?.name : 'platforms'}
+        {selectedPlatformId ? platform?.name : 'platforms'}
       </MenuButton>
       <MenuList>
-        {platforms.map((data) => (
+        {platforms?.results.map((data) => (
           <MenuItem
             key={data.id}
             onClick={() => {

@@ -11,8 +11,9 @@ import getCroppedImageUrl from '../services/image-url';
 import { GenreListProps } from '../constant/type';
 import Spinners from './sprinner/Spinners';
 
-const GenresList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
+const GenresList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const { isLoading, data: genres, error } = useGenres();
+  console.log(genres);
 
   if (error) return;
   if (isLoading) return <Spinners></Spinners>;
@@ -36,7 +37,7 @@ const GenresList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
                 variant="link"
                 textAlign={'left'}
                 objectFit={'cover'}
-                color={genre.id === selectedGenre?.id ? 'red' : 'white'}
+                color={genre.id === selectedGenreId ? 'red' : 'white'}
                 fontSize={'lg'}
                 onClick={() => onSelectGenre(genre)}
               >

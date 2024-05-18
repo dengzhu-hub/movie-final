@@ -9,7 +9,7 @@ const useGames = (gameQuery: GameQuery) => {
     queryFn: async ({ pageParam = 1 }) => {
       return await apiClient.getAll({
         params: {
-          genres: gameQuery?.genre?.id,
+          genres: gameQuery?.genreId,
           platforms: gameQuery?.platform?.id,
           ordering: gameQuery?.sortOrder,
           search: gameQuery?.searchText,
