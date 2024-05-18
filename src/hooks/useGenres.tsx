@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import ApiClient from '../services/api-client.ts';
 import { FetchResponse, Genre } from '../constant/type.ts';
-
+import ms from 'ms';
 const useGenres = () => {
   const apiClient = new ApiClient<Genre>('genres');
 
@@ -15,7 +15,7 @@ const useGenres = () => {
       }
     },
 
-    staleTime: 24 * 60 * 60 * 1000,
+    staleTime: ms('24h'),
   });
 };
 export default useGenres;
