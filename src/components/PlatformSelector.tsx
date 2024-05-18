@@ -1,7 +1,13 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Spinner,
+} from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
-import usePlatform from '../hooks/usePlatform';
-import Spinners from './sprinner/Spinners';
+import usePlatform from '../hooks/usePlatforms';
 import { PlatformSelectorProps } from '../constant/type';
 
 const PlatformSelector = ({
@@ -12,10 +18,18 @@ const PlatformSelector = ({
   const platform = platforms?.results.find(
     (platform) => platform.id === selectedPlatformId,
   );
-  console.log(platform);
 
   if (error) return null;
-  if (isLoading) return <Spinners></Spinners>;
+  if (isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+      />
+    );
 
   return (
     <Menu>
@@ -27,8 +41,6 @@ const PlatformSelector = ({
           <MenuItem
             key={data.id}
             onClick={() => {
-              console.log(data);
-
               onSelectendPlatform(data);
             }}
           >

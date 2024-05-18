@@ -51,6 +51,7 @@ export type FetchGenresProps = {
 export interface FetchResponse<T> {
   count: number;
   next: string | null;
+  previous: string | null;
   results: T[];
 }
 export interface GenreContextType {
