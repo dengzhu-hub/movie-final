@@ -40,7 +40,7 @@ export type GameCardContainerProps = {
 export type Genre = {
   id: number;
   name: string;
-  image_background: string;
+  background_image: string;
 };
 
 export type FetchGenresProps = {

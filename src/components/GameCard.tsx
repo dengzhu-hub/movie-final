@@ -5,11 +5,11 @@ import {
   HStack,
   Image,
   Stack,
-} from "@chakra-ui/react";
-import { GameCardProps } from "../constant/type";
-import PlatformIconList from "./PlatformIconList";
-import CriticScore from "./CriticScore";
-import Emoji from "./Emoji";
+} from '@chakra-ui/react';
+import { GameCardProps } from '../constant/type';
+import PlatformIconList from './PlatformIconList';
+import CriticScore from './CriticScore';
+import Emoji from './Emoji';
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
@@ -17,7 +17,7 @@ const GameCard = ({ game }: GameCardProps) => {
       <Image src={game.background_image} alt="game-image" />
       <Stack>
         <CardBody>
-          <HStack justifyContent={"space-between"} marginTop={3}>
+          <HStack justifyContent={'space-between'} marginTop={3}>
             <PlatformIconList
               platforms={game.parent_platforms.map(
                 (platform) => platform.platform,

@@ -3,20 +3,17 @@ import { GameQuery } from './constant/type';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 interface GameQueryStoreProps {
   gameQuery: GameQuery;
-  searchText: (searchText: string) => void;
+  setSearchText: (searchText: string) => void;
   setGenreId: (genreId: number) => void;
   setPlatformId: (platformId: number) => void;
   setSortOrder: (sortOrder: string) => void;
 }
 
-const gameQueryStore = create<GameQueryStoreProps>((set) => ({
+const useGameQueryStore = create<GameQueryStoreProps>((set) => ({
   gameQuery: {
-    genreId: 0,
-    platformId: 0,
-    sortOrder: '',
-    searchText: '',
+    genreId: 10,
   },
-  searchText: (searchText: string) =>
+  setSearchText: (searchText: string) =>
     set(() => ({ gameQuery: { searchText } })),
   setGenreId: (genreId: number) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, genreId } })),
@@ -39,5 +36,7 @@ const gameQueryStore = create<GameQueryStoreProps>((set) => ({
 const env = import.meta.env.VITE_NODE_ENV;
 console.log(env);
 if (env === 'development') {
-  mountStoreDevtool('game query', gameQueryStore);
+  mountStoreDevtool('game query', useGameQueryStore);
 }
+
+export default useGameQueryStore;
