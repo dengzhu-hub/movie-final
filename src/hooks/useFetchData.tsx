@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client.ts";
-import { FetchResponse } from "../constant/type.ts";
-import { AxiosRequestConfig, CanceledError } from "axios";
+import { useEffect, useState } from 'react';
+import apiClient from '../services/api-client.ts';
+import { FetchResponse } from '../constant/type.ts';
+import { AxiosRequestConfig, CanceledError } from 'axios';
 
 export default function useFetchData<T>(
   endpoint: string,

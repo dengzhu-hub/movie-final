@@ -13,7 +13,6 @@ import Spinners from './sprinner/Spinners';
 
 const GenresList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const { isLoading, data: genres, error } = useGenres();
-  console.log(genres);
 
   if (error) return;
   if (isLoading) return <Spinners></Spinners>;

@@ -1,5 +1,5 @@
-import { createContext, ReactElement, useMemo, useState } from "react";
-import { Genre, GenreContextType } from "../constant/type";
+import { createContext, ReactElement, useMemo, useState } from 'react';
+import { Genre, GenreContextType } from '../constant/type';
 
 const initialValue: GenreContextType = {
   selectGenre: null,

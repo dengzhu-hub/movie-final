@@ -21,7 +21,6 @@ const useGames = (gameQuery: GameQuery) => {
     staleTime: ms('24h'),
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
-      console.log(lastPage, allPages);
       return lastPage.next ? allPages.length + 1 : undefined;
     },
   });

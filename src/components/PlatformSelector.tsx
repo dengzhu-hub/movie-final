@@ -14,6 +14,7 @@ const PlatformSelector = ({
   onSelectendPlatform,
   selectedPlatformId,
 }: PlatformSelectorProps) => {
+  console.log('platformSelector render');
   const { data: platforms, error, isLoading } = usePlatform();
   const platform = platforms?.results.find(
     (platform) => platform.id === selectedPlatformId,
