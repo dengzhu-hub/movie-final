@@ -10,7 +10,9 @@ const SearchInput = () => {
     event.preventDefault();
     if (searchRef.current) {
       setSearchText(searchRef.current.value);
+      searchRef.current.value = '';
     }
+
     console.log(event.target);
   };
 
@@ -19,11 +21,13 @@ const SearchInput = () => {
       <InputGroup>
         <InputLeftElement children={<BsSearchHeartFill />}></InputLeftElement>
         <Input
+          borderWidth={'2px'}
           ref={searchRef}
           type="text"
           pr={'4.5rem'}
           borderRadius={20}
           variant={'outline'}
+          colorScheme="gray.50"
         />
       </InputGroup>
     </form>

@@ -1,7 +1,7 @@
 import { HStack, Image } from '@chakra-ui/react';
 import { logoColor } from '../assets';
-import ColorMode from './ColorMode';
-import SearchInput from './SearchInput';
+import ColorMode from '../components/ColorMode';
+import SearchInput from '../components/SearchInput';
 
 const NavBar = () => {
   console.log('NavBar render');
