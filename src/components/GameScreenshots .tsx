@@ -1,10 +1,9 @@
-import React from 'react';
 import {
   Box,
   Image,
+  SimpleGrid,
   Spinner,
   Text,
-  SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
 import useGameScreenshots from '../hooks/useGameScreenshots ';

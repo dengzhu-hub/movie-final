@@ -1,35 +1,10 @@
 // src/ErrorPage.js
-import { Box, Heading, Text, Button, VStack, Image } from '@chakra-ui/react';
-import {
-  isRouteErrorResponse,
-  useNavigate,
-  useRouteError,
-} from 'react-router-dom';
+import { Box, Button, Heading, Image, Text, VStack } from '@chakra-ui/react';
 import { error } from '../assets';
+import { useNavigate } from 'react-router-dom';
 
 const ErrorPage = () => {
-  const errors = useRouteError();
-  console.log(errors);
   const navigate = useNavigate();
-  let errorMessage: string = '';
-  if (isRouteErrorResponse(errors)) {
-    // React Router specific error
-    if (errors.status === 404) {
-      errorMessage = "The page you're looking for was not found.";
-    } else if (errors.status === 500) {
-      errorMessage = 'Internal server error. Please try again later.';
-    } else {
-      errorMessage = errors.statusText;
-    }
-  } else if (errors instanceof Error) {
-    // General JavaScript error
-    errorMessage = errors.message;
-  } else {
-    // Unknown error
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    errorMessage = 'An unknown error occurred.';
-  }
-
   const handleGoBack = () => {
     navigate('/');
   };
