@@ -1,31 +1,48 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Spinner,
+} from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
-import usePlatform from '../hooks/usePlatform';
-import Spinners from './sprinner/Spinners';
-import { PlatformSelectorProps } from '../constant/type';
+import usePlatform from '../hooks/usePlatforms';
+import useGameQueryStore from '../store';
 
-const PlatformSelector = ({
-  onSelectendPlatform,
-  selectedPlatform,
-}: PlatformSelectorProps) => {
-  const { data, error, isLoading } = usePlatform();
-  console.log(data);
+const PlatformSelector = () => {
+  console.log('platformSelector render');
+  const platformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
+  console.log('platformSelector render');
+  const { data: platforms, error, isLoading } = usePlatform();
+  const platform = platforms?.results.find(
+    (platform) => platform.id === platformId,
+  );
+
   if (error) return null;
-  if (isLoading) return <Spinners></Spinners>;
-  const platforms = data?.results ?? [];
+  if (isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+      />
+    );
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform ? selectedPlatform?.name : 'platforms'}
+        {platformId ? platform?.name : 'platforms'}
       </MenuButton>
       <MenuList>
-        {platforms.map((data) => (
+        {platforms?.results.map((data) => (
           <MenuItem
             key={data.id}
             onClick={() => {
-              console.log(data);
-
-              onSelectendPlatform(data);
+              setPlatformId(data.id);
             }}
           >
             {data.name}

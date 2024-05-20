@@ -1,5 +1,5 @@
-import { Image } from "@chakra-ui/react";
-import { emoji } from "../constant";
+import { Image } from '@chakra-ui/react';
+import { emoji } from '../constant';
 
 interface Props {
   rating: number;

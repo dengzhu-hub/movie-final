@@ -1,21 +1,21 @@
 import {
-  Text,
-  SimpleGrid,
-  Button,
   Box,
+  Button,
   HStack,
+  SimpleGrid,
   Spinner,
+  Text,
 } from '@chakra-ui/react';
-import useGames from '../hooks/useGames';
-import GameCard from './GameCard';
-import CardSkeleton from './CardSkeleton';
-import GameCardContainer from './GameCardContainer';
-import { GameGridProps } from '../constant/type';
-import { Fragment } from 'react/jsx-runtime';
-import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { Fragment } from 'react/jsx-runtime';
+import useGames from '../hooks/useGames';
+import CardSkeleton from './CardSkeleton';
+import GameCard from './GameCard';
+import GameCardContainer from './GameCardContainer';
 
-const GameGrid = ({ gameQuery }: GameGridProps) => {
+const GameGrid = () => {
+  console.log('GameGrid rendering');
   const { ref, inView } = useInView();
   const {
     data,
@@ -24,7 +24,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
-  } = useGames(gameQuery);
+  } = useGames();
 
   useEffect(() => {
     if (inView && hasNextPage) {

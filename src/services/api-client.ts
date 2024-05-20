@@ -4,7 +4,7 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
 } from 'axios';
-import { FetchResponse } from '../constant/type';
+import { FetchResponse, Screenshot } from '../constant/type';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -32,6 +32,39 @@ class ApiClient<T> {
       return this.handleResponse(response);
     } catch (error) {
       return this.handleError(error as AxiosError);
+    }
+  }
+  async get(id: string | number): Promise<T> {
+    try {
+      const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
+        `${this.endpoint}/${id}`,
+      );
+      return response.data;
+    } catch (error) {
+      throw error as AxiosError;
+    }
+  }
+
+  async getMovies(gameId: string | number): Promise<T> {
+    try {
+      const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
+        `${this.endpoint}/${gameId}/movies`,
+      );
+      return response.data;
+    } catch (error) {
+      return this.handleError(error as AxiosError);
+    }
+  }
+
+  async getScreenshots(
+    gameId: string | number,
+  ): Promise<FetchResponse<Screenshot>> {
+    try {
+      const response: AxiosResponse<FetchResponse<Screenshot>> =
+        await this.axiosInstance.get(`${this.endpoint}/${gameId}/screenshots`);
+      return response.data;
+    } catch (error) {
+      throw error as AxiosError;
     }
   }
 

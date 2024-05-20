@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { genres } from '../data/genres.ts';
 import ApiClient from '../services/api-client.ts';
 import { FetchResponse, Genre } from '../constant/type.ts';
+import ms from 'ms';
 const useGenres = () => {
   const apiClient = new ApiClient<Genre>('genres');
 
@@ -14,10 +14,8 @@ const useGenres = () => {
         throw new Error('Failed to fetch genres');
       }
     },
-    initialData: {
-      count: genres.length,
-      results: genres,
-    },
+
+    staleTime: ms('24h'),
   });
 };
 export default useGenres;
