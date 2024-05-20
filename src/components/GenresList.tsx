@@ -5,6 +5,7 @@ import {
   ListItem,
   HStack,
   Heading,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
@@ -15,7 +16,7 @@ const GenresList = () => {
   const { isLoading, data: genres, error } = useGenres();
   const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
   const setGenreId = useGameQueryStore((s) => s.setGenreId);
-
+  const textColor = useColorModeValue('black', 'white');
   if (error) return;
   if (isLoading) return <Spinners></Spinners>;
   return (
@@ -38,7 +39,8 @@ const GenresList = () => {
                 variant="link"
                 textAlign={'left'}
                 objectFit={'cover'}
-                color={genre.id === genreId ? 'red' : 'white'}
+                fontWeight={genreId === genre.id ? 'bold' : 'normal'}
+                color={textColor}
                 fontSize={'lg'}
                 onClick={() => setGenreId(genre.id)}
               >
